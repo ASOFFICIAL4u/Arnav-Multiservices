@@ -1,12 +1,11 @@
-// ===== NAVBAR SCROLL EFFECT =====
+// ===== NAVBAR SCROLL =====
 const navbar = document.getElementById("navbar");
 
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
+  navbar.style.background =
+    window.scrollY > 50
+      ? "rgba(10,25,47,0.95)"
+      : "rgba(10,25,47,0.75)";
 });
 
 // ===== MOBILE MENU =====
@@ -18,20 +17,16 @@ hamburger.addEventListener("click", () => {
 });
 
 // ===== SMOOTH SCROLL =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll("a[href^='#']").forEach(anchor => {
   anchor.addEventListener("click", function(e) {
     e.preventDefault();
-
-    const target = document.querySelector(this.getAttribute("href"));
-    target.scrollIntoView({
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
       behavior: "smooth"
     });
-
-    navMenu.classList.remove("active");
   });
 });
 
-// ===== FAQ ANIMATION =====
+// ===== FAQ ACCORDION =====
 document.querySelectorAll(".faq-question").forEach(btn => {
   btn.addEventListener("click", () => {
     const answer = btn.nextElementSibling;
@@ -41,36 +36,22 @@ document.querySelectorAll(".faq-question").forEach(btn => {
   });
 });
 
-// ===== SERVICE TABS =====
-const tabs = document.querySelectorAll(".tab-btn");
-const contents = document.querySelectorAll(".tab-content");
-
-tabs.forEach(tab => {
-  tab.addEventListener("click", () => {
-    tabs.forEach(t => t.classList.remove("active"));
-    contents.forEach(c => c.classList.remove("active"));
-
-    tab.classList.add("active");
-    document.getElementById("tab-" + tab.dataset.tab).classList.add("active");
-  });
-});
-
-// ===== SCROLL ANIMATION =====
-const revealElements = document.querySelectorAll(".service-card, .why-card, .testi-card");
+// ===== SCROLL REVEAL =====
+const reveal = document.querySelectorAll(".service-card, .why-card, .testi-card");
 
 window.addEventListener("scroll", () => {
-  revealElements.forEach(el => {
+  reveal.forEach(el => {
     const top = el.getBoundingClientRect().top;
     if (top < window.innerHeight - 100) {
-      el.style.opacity = 1;
+      el.style.opacity = "1";
       el.style.transform = "translateY(0)";
     }
   });
 });
 
-// INIT
-revealElements.forEach(el => {
-  el.style.opacity = 0;
+// INIT STATE
+reveal.forEach(el => {
+  el.style.opacity = "0";
   el.style.transform = "translateY(40px)";
   el.style.transition = "0.6s ease";
 });
