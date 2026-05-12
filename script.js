@@ -36,12 +36,8 @@ const SERVICE_DOCS = {
     marathi: 'उत्पन्नाचा दाखला',
     docs: [
       { m: 'आधार कार्ड (मूळ + झेरॉक्स)', e: 'Aadhaar Card (Original + Xerox)' },
-      { m: 'रेशन कार्ड (मूळ + झेरॉक्स)', e: 'Ration Card' },
-      { m: '७/१२ उतारा किंवा प्रॉपर्टी कार्ड', e: '7/12 Extract or Property Card' },
-      { m: 'शाळेचा दाखला / जन्म दाखला', e: 'School Leaving / Birth Certificate' },
-      { m: 'पगार स्लिप किंवा उत्पन्नाचे स्वयंघोषणापत्र', e: 'Salary Slip or Self-Declaration of Income' },
-      { m: 'पासपोर्ट साईज फोटो (२ नग)', e: '2 Passport Size Photos' },
-      { m: 'आधारशी जोडलेला मोबाईल नंबर (OTP साठी)', e: 'Aadhaar-linked Mobile Number (for OTP)' },
+      { m: 'पगार स्लिप नौकरी असल्यास', e: 'Salary Slip If Applicant Has Job' },
+      { m: 'पासपोर्ट साईज फोटो (१ नग)', e: '1 Passport Size Photos' },
     ]
   },
 
@@ -52,9 +48,9 @@ const SERVICE_DOCS = {
       { m: 'रेशन कार्ड', e: 'Ration Card' },
       { m: 'उत्पन्नाचा दाखला (वार्षिक उत्पन्न ₹८ लाखांपेक्षा कमी)', e: 'Income Certificate (Annual income < ₹8 lakh)' },
       { m: '७/१२ उतारा / मालमत्ता नसल्याचे प्रमाणपत्र', e: '7/12 Extract / No Property Certificate' },
-      { m: 'जातीचा दाखला (General प्रवर्ग असल्यास)', e: 'Caste Certificate (if General category)' },
+      { m: 'मंडळ अधिकारी अहवाल', e: 'Mandal Adhikari Ahwal' },
       { m: 'शाळेचा दाखला', e: 'School Leaving Certificate' },
-      { m: 'पासपोर्ट साईज फोटो (२ नग)', e: '2 Passport Size Photos' },
+      { m: 'पासपोर्ट साईज फोटो (१ नग)', e: '1 Passport Size Photos' },
     ]
   },
 
@@ -62,24 +58,18 @@ const SERVICE_DOCS = {
     marathi: 'वय, राष्ट्रीयत्व व अधिवास प्रमाणपत्र',
     docs: [
       { m: 'आधार कार्ड (मूळ + झेरॉक्स)', e: 'Aadhaar Card' },
-      { m: 'शाळेचा दाखला (जन्मतारखेचा पुरावा)', e: 'School Leaving Certificate (Date of Birth Proof)' },
+      { m: 'शाळेचा / जन्म दाखला (जन्मतारखेचा पुरावा)', e: 'School Leaving / Birth Certificate (Date of Birth Proof)' },
       { m: 'रेशन कार्ड (महाराष्ट्रातील रहिवास पुरावा)', e: 'Ration Card (Maharashtra Residence Proof)' },
-      { m: 'वडिलांचा / पालकाचा अधिवास दाखला', e: "Father's / Guardian's Domicile Certificate" },
       { m: 'पासपोर्ट साईज फोटो (२ नग)', e: '2 Passport Size Photos' },
-      { m: 'नोटरी केलेले स्वयंघोषणापत्र', e: 'Notarized Self-Declaration' },
     ]
   },
 
   'Caste Certificate': {
     marathi: 'जातीचा दाखला',
     docs: [
-      { m: 'आधार कार्ड (मूळ + झेरॉक्स)', e: 'Aadhaar Card' },
-      { m: 'शाळेचा दाखला (जात नमूद असलेला)', e: 'School Leaving Certificate (with caste mentioned)' },
+      { m: 'आधार कार्ड (लाभार्थी / अर्जदार)', e: 'Aadhaar Card' },
+      { m: 'शाळेचा दाखला (जात नमूद असलेला) लाभार्थी, वडिलांचा व आजोबांचा', e: 'School Leaving Certificate (with caste mentioned)' },
       { m: 'वडिलांचा / आजोबांचा जातीचा दाखला', e: "Father's / Grandfather's Caste Certificate" },
-      { m: 'रेशन कार्ड', e: 'Ration Card' },
-      { m: '७/१२ उतारा', e: '7/12 Extract' },
-      { m: 'ग्रामसेवक / तहसीलदारांचा स्थानिक चौकशी अहवाल', e: 'Local Enquiry Report from Gramsevak / Tahsildar' },
-      { m: 'जन्म दाखला', e: 'Birth Certificate' },
       { m: 'पासपोर्ट साईज फोटो (२ नग)', e: '2 Passport Size Photos' },
     ]
   },
@@ -194,7 +184,17 @@ const SERVICE_DOCS = {
       { m: 'पासपोर्ट साईज फोटो (२ नग)', e: '2 Passport Size Photos' },
     ]
   },
-
+   
+  'New / Correction Ration Card': {
+     marathi: 'रेशन कार्ड नोंदणी / दुरुस्ती',
+     docs: [
+        { m: 'आधार कार्ड व फोटो (सर्वांचे}', e: "Aadhar Card & Photo (All)" },
+        { m: 'उत्पन्न प्रमाणपत्र (कुटूंब प्रमुखाचे)', e: "Income Certificate (Head of Family)" },
+        { m: 'बेंक पासबुक (कुटूंब प्रमुखाचे)', e: "Bank Passbook (Head of Family)" },
+        { m: 'जागेचा पुरावा (८-अ/लाईट बील/७-१२)', e: "Land Proof (8-A/ Electricity Bill/7-12)" },
+      ]
+  },
+   
   'Loudspeaker License': {
     marathi: 'भोंगा / ध्वनिक्षेपक परवाना',
     docs: [
@@ -261,7 +261,6 @@ const SERVICE_DOCS = {
   '7/12 Utara': {
     marathi: '७/१२ उतारा (सातबारा)',
     docs: [
-      { m: 'आधार कार्ड', e: 'Aadhaar Card' },
       { m: 'जमिनीचा गट नंबर (Survey / Gat Number)', e: 'Land Survey / Gat Number' },
       { m: 'गावाचे नाव, तालुका व जिल्हा', e: 'Village Name, Taluka & District' },
       { m: 'जमीन मालकाचे नाव (महसूल नोंदीनुसार)', e: "Land Owner's Name as per Revenue Records" },
@@ -271,7 +270,6 @@ const SERVICE_DOCS = {
   '8A Extract': {
     marathi: '८ अ उतारा',
     docs: [
-      { m: 'आधार कार्ड', e: 'Aadhaar Card' },
       { m: 'जमिनीचा गट / सर्व्हे नंबर', e: 'Land Gat / Survey Number' },
       { m: 'गावाचे नाव, तालुका व जिल्हा', e: 'Village Name, Taluka & District' },
       { m: 'जमीन मालकाचे नाव', e: "Land Owner's Name" },
